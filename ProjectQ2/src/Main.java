@@ -24,8 +24,8 @@ public class Main {
 
         List<Double> distance = new ArrayList<>();
         for (int i = 0 ; i < 4 ; i++) {
-            distance.add(Math.sqrt(Math.pow(Math.abs(centroidx-allx.get(i)),2)+
-                    Math.pow(Math.abs(centroidy-ally.get(i)),2)));
+            distance.add(Math.sqrt(Math.pow((centroidx-allx.get(i)),2)+
+                    Math.pow((centroidy-ally.get(i)),2)));
             sumDis += distance.get(i);
         }
 

@@ -33,8 +33,8 @@ public class Main {
         double minDis = Collections.min(distance);
         double maxDis = Collections.max(distance);
 
-        System.out.print("The centroid is "+centroidx+", "+centroidy+
-                ".\nSum of distance is "+sumDis+
+        System.out.print("The centroid is ( "+centroidx+", "+centroidy+
+                " ).\nSum of distance is "+sumDis+
                 ".\nShortest distance is "+minDis+
                 ".\nLongest distance is "+maxDis+".");
     }

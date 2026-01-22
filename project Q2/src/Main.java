@@ -1,41 +1,29 @@
 import java.util.Scanner;
-import java.util.ArrayList;
-//เลือกใช้ arraylist แทน array เพราะจะได้ใช้ collection หา min max ได้เลย ไม่ต้องเขียนเอง
-import java.util.List;
-import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        List<Double> allx = new ArrayList<Double>();
-        List<Double> ally = new ArrayList<Double>();
-        String[] pointCount = {"First ", "Second ", "Third ", "Fourth "};
-        double sumx = 0.0, sumy = 0.0, sumDis = 0.0;
-
-        for (int i = 0 ; i < 4 ; i++) {
-            System.out.print(pointCount[i]+ "point: ");
-            allx.add(scanner.nextDouble());
-            ally.add(scanner.nextDouble());
-            sumx += allx.get(i);
-            sumy += ally.get(i);
-        }
-
-        double centroidx = sumx/4.0;
-        double centroidy = sumy/4.0;
-
-        List<Double> distance = new ArrayList<>();
-        for (int i = 0 ; i < 4 ; i++) {
-            distance.add(Math.sqrt(Math.pow((centroidx-allx.get(i)),2)+
-                    Math.pow((centroidy-ally.get(i)),2)));
-            sumDis += distance.get(i);
-        }
-
-        double minDis = Collections.min(distance);
-        double maxDis = Collections.max(distance);
-
-        System.out.print("The centroid is ( "+centroidx+", "+centroidy+
-                " ).\nSum of distance is "+sumDis+
-                ".\nShortest distance is "+minDis+
-                ".\nLongest distance is "+maxDis+".");
+        Scanner sc = new Scanner(System.in);
+        Student first = new Student();
+        Student second = new Student();
+        System.out.println("Student 1: Enter ID, name, major");
+        first.setID(sc.next());
+        sc.nextLine();
+        //first.setName(sc.nextLine());
+        //first.setMajor(sc.next());
+        System.out.println("Student 2: Enter ID, name, major");
+        second.setID(sc.next());
+        //second.setName(sc.nextLine());
+        //second.setMajor(sc.next());
+        System.out.print (first.sameYear(second) ?
+                "Same year, " : "Different year, ");
+        System.out.print (first.sameLevel(second) ?
+                "same level, " : "different level, ");
+        System.out.print (first.sameFaculty(second) ?
+                "same faculty" : "different faculty");
     }
+    /*ปัญหาคือ ตอน input name มันมีนามสกุลด้วย แต่โจทย์ไม่ได้บอกว่าต้องรับมั้ย
+    หรือคนกรอกจะกรอกนามสกุลมาด้วยทุกครั้งมั้ย หรือจะเป็นสาขาเลย
+    แถมใช้ nextLine() รับมาไม่ได้เพราะตัวอย่างมันไม่ได้เคาะบรรทัดเลย
+    สรุปตอนนี้ที่ทำไว้คือ object Student เก็บมาแค่ ID ไม่สนไม่บันทึกชื่อกับสาขาที่กรอกมาเลย
+    โปรแกรมเวิร์กตามตัวอย่าง แต่ถ้าเอาจริง/ไปเทสเรียกอย่างอื่นก็ไม่ได้ เพราะหลังบ้านยังไม่ได้*/
 }
